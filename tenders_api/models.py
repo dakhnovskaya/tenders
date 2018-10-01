@@ -5,17 +5,29 @@ from django.utils import timezone
 class Customer(models.Model):
     name = models.CharField(max_length=256, verbose_name='Наименование заказчика')
 
+    def __str__(self):
+        return self.name
+
 
 class Category(models.Model):
     name = models.CharField(max_length=256, verbose_name='Наименование категории')
+
+    def __str__(self):
+        return self.name
 
 
 class Stage(models.Model):
     name = models.CharField(max_length=256, verbose_name='Наименование этапа')
 
+    def __str__(self):
+        return self.name
+
 
 class TypePurchase(models.Model):
     name = models.CharField(max_length=256, verbose_name='Наименование вида')
+
+    def __str__(self):
+        return self.name
 
 
 class Tender(models.Model):
