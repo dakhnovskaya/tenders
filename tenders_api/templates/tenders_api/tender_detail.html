@@ -1,0 +1,16 @@
+{% extends 'tenders_api/base.html' %}
+
+{% block content %}
+    <div class="tenders">
+        {% if tender.date_publication %}
+            <div class="date">
+                {{ tender.date_publication }}
+            </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'tender_edit' pk=tender.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+        <h1>{{ tender.brief_description }}</h1>
+        <h1>{{ tender.customer }}</h1>
+    </div>
+{% endblock %}

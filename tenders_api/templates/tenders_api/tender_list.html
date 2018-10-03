@@ -1,14 +1,12 @@
-<html>
-    <head>
-        <title>Система регистрации тендеров</title>
-    </head>
-    <body>
-        {% for tender in tenders %}
-            <div>
-                <p>published: {{ tender.date_publication }}</p>
-                <h1><a href="">{{ tender.brief_description }}</a></h1>
-                <p>{{ tender.initial_price }}</p>
+{% extends 'tenders_api/base.html' %}
+{% block content %}
+    {% for tender in tenders %}
+        <div class="tenders">
+            <div class="date">
+                {{ tender.date_publication }}
             </div>
-        {% endfor %}
-    </body>
-</html>
+            <h1><a href="{% url 'tender_detail' pk=tender.pk %}">{{ tender.brief_description }}</a></h1>
+            <p>{{ tender.customer }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
